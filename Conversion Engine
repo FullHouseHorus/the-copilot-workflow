@@ -1,0 +1,24 @@
+name: Conversion Engine
+
+on:
+  workflow_call:
+
+jobs:
+  conversion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update opt-in and funnel assets
+        run: |
+          echo "Maintain opt-in pages, thank-you pages, tripwire offers"
+
+      - name: Generate / refine email sequences
+        run: |
+          echo "Create or refine 7–14 day email sequences"
+
+      - name: Export sequences for ESP integration
+        run: |
+          echo "Prepare JSON/CSV for import into email platform"
