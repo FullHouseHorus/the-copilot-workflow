@@ -1,0 +1,67 @@
+name: Money Engine
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # runs every 30 minutes
+  workflow_dispatch:
+
+jobs:
+  orchestrate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Traffic Engine
+        uses: ./.github/workflows/traffic-engine.yml
+
+      - name: Run Conversion Engine
+        uses: ./.github/workflows/conversion-engine.yml
+
+      - name: Run Automation Layer
+        uses: ./.github/workflows/automation-layer.yml
+
+      - name: Run Authority Layer
+        uses: ./.github/workflows/authority-layer.yml
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions"name: Money Engine
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # runs every 30 minutes
+  workflow_dispatch:
+
+jobs:
+  orchestrate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Traffic Engine
+        uses: ./.github/workflows/traffic-engine.yml
+
+      - name: Run Conversion Engine
+        uses: ./.github/workflows/conversion-engine.yml
+
+      - name: Run Automation Layer
+        uses: ./.github/workflows/automation-layer.yml
+
+      - name: Run Authority Layer
+        uses: ./.github/workflows/authority-layer.yml
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Money Engine update" || echo "No changes to commit"
+          git push
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Money Engine update" || echo "No changes to commit"
+          git push
