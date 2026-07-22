@@ -1,0 +1,23 @@
+name: Traffic Engine
+
+on:
+  workflow_call:
+
+jobs:
+  traffic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate evergreen content
+        run: |
+          echo "Generate blog posts / scripts here"
+
+      - name: Repurpose content
+        run: |
+          echo "Repurpose long-form into short-form, emails, social posts"
+
+      - name: Update content assets
+        run: 
