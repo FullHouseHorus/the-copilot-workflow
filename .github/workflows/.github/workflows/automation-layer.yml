@@ -1,0 +1,9 @@
+on:
+  workflow_call:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Automation Layer
+        run: echo "Automation Layer Running"
