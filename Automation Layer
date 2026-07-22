@@ -1,0 +1,28 @@
+name: Automation Layer
+
+on:
+  workflow_call:
+
+jobs:
+  automation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Process lead events
+        run: |
+          echo "Simulate or log lead events (opt-ins, clicks, purchases)"
+
+      - name: Update lead scoring model
+        run: |
+          echo "Recalculate lead scores based on behavior"
+
+      - name: Map leads to campaigns
+        run: |
+          echo "Assign leads to appropriate campaigns / sequences"
+
+      - name: Export automation rules
+        run: |
+          echo "Prepare rules for ESP/CRM integration"
