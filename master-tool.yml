@@ -1,0 +1,24 @@
+name: master-engine
+
+on:
+  workflow_dispatch:
+
+jobs:
+  start-money:
+    uses: ./.github/workflows/money-engine.yml
+
+  start-traffic:
+    needs: start-money
+    uses: ./.github/workflows/traffic-engine.yml
+
+  start-conversion:
+    needs: start-traffic
+    uses: ./.github/workflows/conversion-engine.yml
+
+  start-automation:
+    needs: start-conversion
+    uses: ./.github/workflows/automation-layer.yml
+
+  start-authority:
+    needs: start-automation
+    uses: ./.github/workflows/authority-layer.yml
