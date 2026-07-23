@@ -1,0 +1,19 @@
+utomation-layer
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["conversion-engine"]
+    types: [completed]
+
+jobs:
+  automation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Automation Layer
+        run: echo "Automation layer triggered after conversion-engine completed."
+
+      - name: Run automation tasks
+        run: |
+          echo "Running automation tasks..."
+          # Add your automation logic
